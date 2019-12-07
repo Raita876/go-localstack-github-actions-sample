@@ -23,3 +23,5 @@ jobs:
           cp ./.aws/* ~/.aws/
       - name: go version
         run: go version
+      - name: go run
+        run: go run main.go
