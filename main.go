@@ -42,7 +42,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Println(createBucketOutput)
 	fmt.Println(createBucketOutput.String())
+	fmt.Println(createBucketOutput.GoString())
 
 	result, _ := svc.ListBuckets(nil)
 	fmt.Println("Buckets:")
