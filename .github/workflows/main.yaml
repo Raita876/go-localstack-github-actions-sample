@@ -8,5 +8,9 @@ jobs:
     container:
       image: golang:1.13
     steps:
+      - name: checkout
+        uses: actions/checkout@master
+      - name: ls -la
+        run: ls -la
       - name: go version
         run: go version
