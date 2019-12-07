@@ -5,7 +5,8 @@ on: [push]
 jobs:
   golang-job:
     runs-on: ubuntu-latest
-    container: golang:1.13
+    container:
+      image: golang:1.13
     steps:
       - name: go version
         run: go version
