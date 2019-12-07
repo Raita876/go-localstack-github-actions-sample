@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -35,9 +36,13 @@ func main() {
 
 	svc := s3.New(sess)
 
-	svc.CreateBucket(&s3.CreateBucketInput{
+	createBucketOutput, err := svc.CreateBucket(&s3.CreateBucketInput{
 		Bucket: aws.String(bucket),
 	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(createBucketOutput.String())
 
 	result, _ := svc.ListBuckets(nil)
 	fmt.Println("Buckets:")
