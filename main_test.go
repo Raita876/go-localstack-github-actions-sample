@@ -24,8 +24,8 @@ func TestUpload(t *testing.T) {
 		bucketPath string
 		filePath   string
 	}{
-		{"sample", "go-localstack-github-actions-sample/hello.txt", "sample/hello.txt"},
-		{"sample", "go-localstack-github-actions-sample/workflow.txt", "sample/workflow.txt"},
+		{"go-localstack-github-actions-sample", "hello.txt", "sample/hello.txt"},
+		{"go-localstack-github-actions-sample", "workflow.txt", "sample/workflow.txt"},
 	}
 
 	for _, tt := range tests {
