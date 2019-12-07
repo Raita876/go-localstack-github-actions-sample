@@ -9,7 +9,7 @@ jobs:
       image: golang:1.13
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v1
       - name: ls -la
         run: ls -la
       - name: go version
