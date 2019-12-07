@@ -10,14 +10,14 @@ import (
 )
 
 // CreateSessionForLocalstack Create a session for localstack
-func CreateSessionForLocalstack(region string, endpoint string) *session.Session {
+func CreateSessionForLocalstack(region string, endpoint string, profile string) *session.Session {
 	conf := aws.Config{
 		Region:           aws.String(region),
 		Endpoint:         aws.String(endpoint),
 		S3ForcePathStyle: aws.Bool(true),
 	}
 	sess, _ := session.NewSessionWithOptions(session.Options{
-		Profile:           "localstack",
+		Profile:           profile,
 		Config:            conf,
 		SharedConfigState: session.SharedConfigEnable,
 	})
@@ -27,11 +27,13 @@ func CreateSessionForLocalstack(region string, endpoint string) *session.Session
 func main() {
 	region := "ap-northeast-1"
 	endpoint := "http://localstack:4572"
+	profile := "localstack"
 	bucket := "sample"
 
 	sess := CreateSessionForLocalstack(
 		region,
 		endpoint,
+		profile,
 	)
 
 	svc := s3.New(sess)
