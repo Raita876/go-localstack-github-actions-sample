@@ -14,6 +14,7 @@ const (
 	Endpoint       = "http://localstack:4572"
 	Profile        = "localstack"
 	Bucket         = "go-localstack-github-actions-sample"
+	BucketPath     = "sample/README.md"
 	ReadmeFilePath = "README.md"
 )
 
@@ -113,5 +114,7 @@ func main() {
 
 	s3Ctr.CreateBuckets(buckets)
 	s3Ctr.ListBuckets()
+
+	s3Ctr.UploadFile(Bucket, BucketPath, ReadmeFilePath)
 
 }
