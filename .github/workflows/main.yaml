@@ -7,10 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: golang:1.13
+    services:
+      localstack:
+        image: localstack/localstack:latest
     steps:
       - name: checkout
         uses: actions/checkout@v1
-      - name: ls -la
-        run: ls -la
+      - name: check
+        run: |
+          pwd
+          ls -la
+      - name: setup
+        run: |
+          mkdir -p ~/.aws
+          cp ./.aws/* ~/.aws/
       - name: go version
         run: go version
