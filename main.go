@@ -17,7 +17,7 @@ func CreateSessionForLocalstack(region string, endpoint string) *session.Session
 		S3ForcePathStyle: aws.Bool(true),
 	}
 	sess, _ := session.NewSessionWithOptions(session.Options{
-		// Profile:           "localstack",
+		Profile:           "localstack",
 		Config:            conf,
 		SharedConfigState: session.SharedConfigEnable,
 	})
