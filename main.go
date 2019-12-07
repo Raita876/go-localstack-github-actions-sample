@@ -36,15 +36,12 @@ func main() {
 
 	svc := s3.New(sess)
 
-	createBucketOutput, err := svc.CreateBucket(&s3.CreateBucketInput{
+	_, err := svc.CreateBucket(&s3.CreateBucketInput{
 		Bucket: aws.String(bucket),
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(createBucketOutput)
-	fmt.Println(createBucketOutput.String())
-	fmt.Println(createBucketOutput.GoString())
 
 	result, _ := svc.ListBuckets(nil)
 	fmt.Println("Buckets:")
