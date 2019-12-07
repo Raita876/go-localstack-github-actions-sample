@@ -19,7 +19,5 @@ jobs:
         run: |
           mkdir -p ~/.aws
           cp ./.aws/* ~/.aws/
-      - name: go version
-        run: go version
       - name: go test
         run: go test -v -cover
