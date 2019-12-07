@@ -13,15 +13,11 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v1
-      - name: check
-        run: |
-          pwd
-          ls -la
       - name: setup
         run: |
           mkdir -p ~/.aws
           cp ./.aws/* ~/.aws/
       - name: go version
         run: go version
-      - name: go run
-        run: go run main.go
+      - name: go test
+        run: go test -v -cover
